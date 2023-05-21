@@ -13,9 +13,12 @@ const Navbar = () => {
         <li><Link to="/">Home </Link></li>
         <li><Link to="/appointment">Appointment</Link></li>
         <li><Link to="/about">About</Link></li>
-        <li><Link to="/reviews">Reviews</Link></li>
-        {/* <li><Link to="/login">Login</Link></li> */}
-        {user?.uid ? <li><button onClick={handleLogOut}>Sign out</button></li>
+
+
+        {user?.uid ?
+            <>
+                <li><Link to="/dashboard">Dashbord</Link></li>
+                <li><button onClick={handleLogOut}>Sign out</button></li></>
             : <li><Link to='/login'>Login</Link></li>}
     </React.Fragment>
     return (
