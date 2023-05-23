@@ -5,6 +5,8 @@ import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AddStudent from "../../Pages/Home/AddStudent/AddStudent";
+import StudentUpdate from "../../Pages/Home/StudentList/StudentUpdate";
 
 export const router = createBrowserRouter([
     {
@@ -28,5 +30,14 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+    },
+    {
+        path: '/addStudent',
+        element: <AddStudent></AddStudent>
+    },
+    {
+        path:"/updateStudent/:id",
+        element:<StudentUpdate></StudentUpdate>,
+        loader:({params})=>fetch(`http://localhost:5000/studentList/${params.id}`)
     }
 ])
