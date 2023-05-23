@@ -56,7 +56,8 @@ const Courses = () => {
 
     ]
     return (
-        <div style={{ backgroundImage: `url(${homebg})` }}>
+        // <div style={{ backgroundImage: `url(${homebg})` }}>
+        <div>
             <div>
                 <h2 className='text-3xl font-bold text-center '>Course</h2>
             </div>
