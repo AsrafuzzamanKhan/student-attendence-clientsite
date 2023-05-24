@@ -1,6 +1,6 @@
 import React from 'react';
 import Course from './Course';
-import icon from '../../../assets/icon/icon.png'
+import icon from '../../../assets/icons/quote.svg'
 import homebg from '../../../assets/banner/homebg.jpg'
 
 const Courses = () => {

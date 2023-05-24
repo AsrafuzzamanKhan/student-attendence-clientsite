@@ -30,6 +30,10 @@ export const router = createBrowserRouter([
         path: "/attendence",
         element: <Attendence></Attendence>,
       },
+      {
+        path: "/addStudent",
+        element: <AddStudent></AddStudent>
+      },
     ],
   },
   {
@@ -40,10 +44,10 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
   },
-  {
-    path: "/addStudent",
-    element: <AddStudent></AddStudent>,
-  },
+  // {
+  //   path: "/addStudent",
+  //   element: <AddStudent></AddStudent>,
+  // },
   {
     path: "/updateStudent/:id",
     element: <StudentUpdate></StudentUpdate>,
