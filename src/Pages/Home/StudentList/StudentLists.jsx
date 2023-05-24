@@ -73,10 +73,10 @@ const StudentLists = () => {
                     <td>{row?.phone}</td>
                     <td>{row?.attendence}</td>
                     <td>
-                      <Link to={`/updateStudent/${row._id}`}>
+                      {/* <Link to={`/updateStudent/${row._id}`}>
                         {" "}
                         <button className="btn btn-outline btn-info uppercase">Edit</button>
-                      </Link>
+                      </Link> */}
                       <button className="btn btn-error uppercase mx-2" onClick={() => handleDelete(row)}>Delete</button>
                     </td>
                   </tr>

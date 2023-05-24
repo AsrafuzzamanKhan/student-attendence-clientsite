@@ -21,13 +21,15 @@ const AuthProvider = ({ children }) => {
     }
     // update name 
     const updateUser = (userInfo) => {
-        return updateProfile(user, userInfo)
+        // return updateProfile(auth.currentUser, userInfo)
+        return updateProfile(auth.currentUser, userInfo)
     }
 
     // current user observer 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('user observer');
+            // console.log(user)
             setUser(currentUser)
             setLoading(false)
         });

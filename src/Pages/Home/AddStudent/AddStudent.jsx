@@ -28,7 +28,7 @@ const AddStudent = () => {
     const handleSudentBlur = e => {
         const value = e.target.value;
         const felid = e.target.name;
-        const newStudent = { ...student }
+        const newStudent = { ...student, status: 'Absence' }
         newStudent[felid] = value
         setSudent(newStudent)
     }

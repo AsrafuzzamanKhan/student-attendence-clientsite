@@ -34,6 +34,12 @@ export const router = createBrowserRouter([
         path: "/addStudent",
         element: <AddStudent></AddStudent>
       },
+      {
+        path: "/updateStudent/:id",
+        element: <StudentUpdate></StudentUpdate>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/studentList/${params.id}`),
+      },
     ],
   },
   {
@@ -48,10 +54,5 @@ export const router = createBrowserRouter([
   //   path: "/addStudent",
   //   element: <AddStudent></AddStudent>,
   // },
-  {
-    path: "/updateStudent/:id",
-    element: <StudentUpdate></StudentUpdate>,
-    loader: ({ params }) =>
-      fetch(`http://localhost:5000/studentList/${params.id}`),
-  },
+
 ]);
