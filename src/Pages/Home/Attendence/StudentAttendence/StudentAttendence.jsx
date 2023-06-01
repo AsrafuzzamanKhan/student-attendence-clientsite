@@ -5,7 +5,7 @@ import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const StudentAttendence = ({ selectedDate }) => {
   const { user } = useContext(AuthContext);
-
+  const date = format(selectedDate, 'PP')
   const [studentAttendence, setStudentAttendence] = useState([]);
 
 
@@ -46,12 +46,32 @@ const StudentAttendence = ({ selectedDate }) => {
   };
 
 
+  const handleAttendence = event => {
+    event.preventdefault();
+    const form = event.target;
+    const name = form.name.value;
+    const slot = form.slot.value;
+    const attenden = {
+      attendentDate: date,
+      slot: slot,
+      stName: name,
+    }
+    console.log(attenden)
+
+  }
+
+
   return (
     <section className="mt-16">
       <p className="text-center text-primary font-bold">
-        You have selected: {format(selectedDate, "PP")}
+        You have selected: {date}
       </p>
       <p>Teacher name: {user?.displayName}</p>
+      <select className="select select-bordered w-full max-w-xs">
+        <option >Who shot first?</option>
+        <option name='slot'>Data </option>
+        <option name='slot'>Programming</option>
+      </select>
       <div>
         <div className="overflow-x-auto">
           <table className="table table-compact w-full">
@@ -60,7 +80,7 @@ const StudentAttendence = ({ selectedDate }) => {
                 <th>Roll</th>
                 <th>Name</th>
                 <th>{format(selectedDate, "PP")}</th>
-                <th>{format(selectedDate, "PP")}</th>
+
 
               </tr>
             </thead>
@@ -68,7 +88,7 @@ const StudentAttendence = ({ selectedDate }) => {
               {studentAttendence.map((row, index) => (
                 <tr key={row._id}>
                   <th>{index + 1}</th>
-                  <td>{row.name}</td>
+                  <td name='name'>{row.name}</td>
                   <td>
                     {row?.status === 'Absence' ? (
                       <button
@@ -88,6 +108,11 @@ const StudentAttendence = ({ selectedDate }) => {
           </table>
         </div>
       </div>
+
+
+
+
+
     </section>
   );
 };

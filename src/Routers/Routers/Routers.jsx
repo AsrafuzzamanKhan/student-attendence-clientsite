@@ -30,6 +30,7 @@ export const router = createBrowserRouter([
         path: "/attendence",
         element: <Attendence></Attendence>,
       },
+
       {
         path: "/addStudent",
         element: <AddStudent></AddStudent>
