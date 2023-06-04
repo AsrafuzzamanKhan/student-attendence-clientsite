@@ -7,7 +7,7 @@ const AttendenceBanner = ({ selectedDate, setSelectedDate }) => {
   return (
     <header>
       <div className="hero">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex-col lg:flex-row-reverse	">
           <img
             src={student}
             className="max-w-sm lg:w-1/2  rounded-lg shadow-2xl"

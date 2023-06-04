@@ -8,6 +8,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AddStudent from "../../Pages/Home/AddStudent/AddStudent";
 import StudentUpdate from "../../Pages/Home/StudentList/StudentUpdate";
 import Attendence from "../../Pages/Home/Attendence/Attendence/Attendence";
+import AllStdPresent from "../../Pages/Home/Attendence/StudentAttendence/AllStdPresent";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/attendence",
         element: <Attendence></Attendence>,
+      },
+      {
+        path: "/allAttendence",
+        element: <AllStdPresent></AllStdPresent>
       },
 
       {

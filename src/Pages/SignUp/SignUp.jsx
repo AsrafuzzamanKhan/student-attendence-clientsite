@@ -17,17 +17,15 @@ const SignUp = () => {
         setSignUpError('')
         createUser(data.email, data.password)
             .then(result => {
-
                 const user = result.user
                 console.log(user)
                 toast("User created Sucessfully")
-
                 const UserInfo = {
                     displayName: data.name
                 }
                 updateUser(UserInfo)
                     .then(() => {
-                        navigate('/')
+                        saveTeacherDb(data.name, data.email)
                     })
                     .catch(err => console.log(err))
             })
@@ -36,6 +34,22 @@ const SignUp = () => {
                 setSignUpError(error.message)
             })
 
+    }
+
+    const saveTeacherDb = (name, email) => {
+        const teacher = { name, email };
+        fetch('http://localhost:5000/teachers', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(teacher)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('save teacher', data)
+                navigate('/')
+            })
     }
     return (
         <div className='h-[800px] flex justify-center items-center '>
