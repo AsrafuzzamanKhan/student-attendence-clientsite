@@ -1,3 +1,6 @@
+
+// optional 
+
 import { format } from "date-fns";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthProvider";
@@ -12,7 +15,7 @@ const StudentAttendence = ({ selectedDate }) => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/studentList")
+    fetch("https://student-attendence-seversite.vercel.app/studentList")
       .then((res) => res.json())
       .then((data) => {
         setStudentAttendence(data)
@@ -25,7 +28,7 @@ const StudentAttendence = ({ selectedDate }) => {
 
   const handleUpdate = (_id) => {
     console.log('dattttttttttttttttt')
-    const url = `http://localhost:5000/studentList/${_id}`;
+    const url = `https://student-attendence-seversite.vercel.app/studentList/${_id}`;
     console.log('Uri', url)
     fetch(url, {
       method: 'PUT',

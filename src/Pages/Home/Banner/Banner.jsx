@@ -13,16 +13,19 @@ const Banner = () => {
         //         </div>
         //     </div>
         // </div>
-        <div className="hero min-h-screen" style={{ backgroundImage: `url(${cover})` }}>
+
+
+        <div className="hero h-[500px]" style={{ backgroundImage: `url(${cover})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Welcome to  Student Attendence System</h1>
-                    {/* <p className="mb-5">We can Add student information , update, and Delete Student information the system. On the other hand, we can count student Attendence aslo.</p> */}
+                    <h1 className="mb-5 text-4xl font-bold">Welcome to  <span className='text-purple-800 bg-gray-400'>Student Attendence</span> System</h1>
+                    {/* <p className="mb-5 text-slate-100 text-xl">We can Add student information, update, and Delete Student information the system. On the other hand, we can count student Attendence aslo.</p> */}
 
                 </div>
             </div>
         </div>
+
     );
 };
 

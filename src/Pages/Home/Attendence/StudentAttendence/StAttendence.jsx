@@ -8,70 +8,41 @@ import Presents from './Presents';
 
 const StAttendence = ({ selectedDate }) => {
     const { user } = useContext(AuthContext);
+    const [teacher, setTeacher] = useState([])
     const date = format(selectedDate, 'PP')
-    // const [presents, setPresents] = useState([])
-
-    // useEffect(() => {
-    //     fetch("http://localhost:5000/studentList")
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             setPresents(data)
-    //             console.log(data)
-    //         });
-    // }, []);
 
 
     const { data: presents = [], refetch, isLoading } = useQuery(
         {
             queryKey: ['presents', date],
-            queryFn: () => fetch(`http://localhost:5000/studentList?date=${date}`)
+            queryFn: () => fetch(`https://student-attendence-seversite.vercel.app/studentList?date=${date}`)
                 .then(res => res.json())
         }
     )
-    // if (isLoading) {
-    //     return <Loading></Loading>
-    // }
+    // teacher data :
+    useEffect(() => {
+        fetch(`https://student-attendence-seversite.vercel.app/teacher?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log('teacher data', data)
 
-    // const handlePresent = event => {
-    //     event.preventDefault();
-    //     console.log('handel')
-    //     const form = event.target;
-    //     const name = form.name.value;
-    //     const roll = form.roll.value;
-    //     const slot = form.slot.value;
-    //     const studentPresent = {
-    //         presentDate: date,
-    //         name,
-    //         roll,
-    //         slot
-    //     }
-    //     console.log(pres)
-    //     fetch('http://localhost:5000/presents', {
-    //         method: "POST",
-    //         headers: {
-    //             'content-type': "application/json"
-    //         },
-    //         body: JSON.stringify(studentPresent)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // }
-
-
-
-
+                setTeacher(data)
+            })
+    }, [user]);
 
 
     return (
-        <section>
-            <p className="text-center text-primary font-bold">
-                You have selected: {format(selectedDate, "PP")} </p>
+        <section className='bg-gray-100 py-5 mt-5'>
 
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-[1440px] mx-auto'>
+            <div className='text-center mt-8 leading-8	'>
+                <p className='text-xl leading-8'> <span className='text-primary'>Teacher Name:</span> {user?.displayName}</p>
 
+                <p className='text-2xl'> <span className='text-primary'>Subject: </span> <span className='uppercase'>{teacher[0]?.subject}</span></p>
+                <p className="text-center text-primary font-bold my-5">
+                    You have selected: {format(selectedDate, "PP")} </p>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-[1440px] mx-auto'>
 
                 {
                     presents.map(option =>

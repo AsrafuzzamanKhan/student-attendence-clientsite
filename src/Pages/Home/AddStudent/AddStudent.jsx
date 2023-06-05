@@ -8,7 +8,7 @@ const AddStudent = () => {
         e.preventDefault();
         // console.log(student);
 
-        fetch('http://localhost:5000/addStudent', {
+        fetch('https://student-attendence-seversite.vercel.app/addStudent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

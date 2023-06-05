@@ -8,11 +8,11 @@ const StudentLists = () => {
   // react query
   // const { data: students = [] } = useQuery({
   //     queryKey: ["students"],
-  //     queryFn: () => fetch('http://localhost:5000/studentList')
+  //     queryFn: () => fetch('https://student-attendence-seversite.vercel.app/studentList')
   //         .then(res => res.json())
   // })
   useEffect(() => {
-    fetch("http://localhost:5000/studentList")
+    fetch("https://student-attendence-seversite.vercel.app/studentList")
       .then((res) => res.json())
       .then((data) => setStudents(data));
   }, []);
@@ -22,7 +22,7 @@ const StudentLists = () => {
     console.log("User Row id: ", row._id);
     console.log("row data", row);
     if (agree) {
-      fetch(`http://localhost:5000/studentList/${row._id}`, {
+      fetch(`https://student-attendence-seversite.vercel.app/studentList/${row._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -40,9 +40,9 @@ const StudentLists = () => {
   };
   return (
 
-    <div className="my-16">
+    <div className="my-16 max-w-[1440px] mx-auto">
       <div className="my-10">
-        <h2 className='text-3xl text-primary font-bold text-center '>Available Student {students.length}</h2>
+        <h2 className='text-3xl text-primary font-bold text-center '>Total Students: {students.length}</h2>
       </div>
 
       <div>
@@ -50,35 +50,35 @@ const StudentLists = () => {
         <div className="overflow-x-auto">
           <table className="table w-full">
             {/* head*/}
-            <thead>
-              <tr>
+            <thead >
+              <tr className="hover">
                 <th></th>
-                <th>Class roll</th>
-                <th>Name</th>
-                <th>Gmail</th>
-                <th>Phone Number</th>
-                <th>Attendence</th>
-                <th>Edit</th>
+                <th className="text-lg">Class roll</th>
+                <th className="text-lg">Name</th>
+                <th className="text-lg">Gmail</th>
+                <th className="text-lg">Phone Number</th>
+                {/* <th>Attendence</th>
+                <th>Edit</th> */}
 
               </tr>
             </thead>
             <tbody>
               {
                 students.map((row, index) => (
-                  <tr key={row._id}>
+                  <tr key={row._id} className="hover">
                     <th>{index + 1}</th>
                     <th>{row.roll}</th>
                     <td>{row.name}</td>
                     <td>{row.email}</td>
                     <td>{row?.phone}</td>
-                    <td>{row?.attendence}</td>
+                    {/* <td>{row?.attendence}</td>
                     <td>
-                      {/* <Link to={`/updateStudent/${row._id}`}>
+                      <Link to={`/updateStudent/${row._id}`}>
                         {" "}
                         <button className="btn btn-outline btn-info uppercase">Edit</button>
-                      </Link> */}
+                      </Link>
                       <button className="btn btn-error uppercase mx-2" onClick={() => handleDelete(row)}>Delete</button>
-                    </td>
+                    </td> */}
                   </tr>
                 ))
               }

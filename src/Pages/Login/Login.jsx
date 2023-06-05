@@ -30,8 +30,8 @@ const Login = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center items-center '>
-            <div className='w-96 p-7 shadow-xl rounded  '>
+        <div className='h-[80vh] flex justify-center items-center bg-gradient-to-r from-blue-500'>
+            <div className='w-96 p-7 shadow-xl rounded glass '>
                 <h2 className='text-2xl text-center uppercase'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
 
@@ -71,21 +71,22 @@ const Login = () => {
 
 
 
-                    <input className='btn btn-accent w-full' value='Login' type="submit" />
+                    <input className='btn btn-outline w-full mt-2' value='Login' type="submit" />
                     {/* error  */}
 
                     <div>
                         {loginError && <p>{loginError} why not</p>}
                     </div>
                 </form>
-                <p>New To Student Attendence System?<Link to='/signup' className='text-secondary'>Create a new account</Link></p>
-                <div className="flex flex-col w-full border-opacity-50">
+                <p className='mt-4'>New To Student Attendence System ?
+                    <Link to='/signup' className='text-primary'> Create a new account.</Link></p>
+                {/* <div className="flex flex-col w-full border-opacity-50">
 
                     <div className="divider">OR</div>
 
                 </div>
 
-                <button className='btn btn-outline w-full'>Continue with google</button>
+                <button className='btn btn-outline w-full'>Continue with google</button> */}
             </div>
         </div>
     );

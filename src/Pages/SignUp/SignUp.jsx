@@ -13,7 +13,7 @@ const SignUp = () => {
 
 
     const handleSignUp = (data) => {
-        console.log(data);
+        console.log('User Data: ', data);
         setSignUpError('')
         createUser(data.email, data.password)
             .then(result => {
@@ -25,7 +25,7 @@ const SignUp = () => {
                 }
                 updateUser(UserInfo)
                     .then(() => {
-                        saveTeacherDb(data.name, data.email)
+                        saveTeacherDb(data.name, data.email, data.subject)
                     })
                     .catch(err => console.log(err))
             })
@@ -36,9 +36,9 @@ const SignUp = () => {
 
     }
 
-    const saveTeacherDb = (name, email) => {
-        const teacher = { name, email };
-        fetch('http://localhost:5000/teachers', {
+    const saveTeacherDb = (name, email, subject) => {
+        const teacher = { name, email, subject };
+        fetch('https://student-attendence-seversite.vercel.app/teachers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,8 +52,8 @@ const SignUp = () => {
             })
     }
     return (
-        <div className='h-[800px] flex justify-center items-center '>
-            <div className='w-96 p-7 shadow-xl rounded  '>
+        <div className=' py-12 flex justify-center items-center bg-gradient-to-r from-blue-500 '>
+            <div className='w-96 p-7 shadow-xl rounded  glass shadow-lg  '>
                 <h2 className='text-2xl text-center uppercase'>Sign up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)} >
 
@@ -104,19 +104,38 @@ const SignUp = () => {
                         {errors.password && <p className='text-red-600 mt-2' role="alert">{errors.password?.message}</p>}
 
                     </div>
-                    <input className='btn btn-accent w-full my-3' value='Sign Up' type="submit" />
+                    {/* modified  */}
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Subject</span>
+
+                        </label>
+
+                        <select {...register("subject")} className="select select-bordered uppercase">
+                            <option value="c programming">c-programming</option>
+                            <option value="database">database</option>
+                            <option value="networking">networking</option>
+                        </select>
+
+                    </div>
+
+
+
+
+
+                    <input className='btn btn-outline w-full my-4 ' value='Sign Up' type="submit" />
 
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
 
-                <p>Already Have an Account? <Link to='/login' className='text-secondary'>Please LOGIN</Link></p>
-                <div className="flex flex-col w-full border-opacity-50">
+                <p>Already Have an Account ? <Link to='/login' className='text-primary'> Please LOGIN </Link></p>
+                {/* <div className="flex flex-col w-full border-opacity-50">
 
                     <div className="divider">OR</div>
 
                 </div>
 
-                <button className='btn btn-outline w-full'>Continue with google</button>
+                <button className='btn btn-outline w-full'>Continue with google</button> */}
             </div>
         </div>
     );

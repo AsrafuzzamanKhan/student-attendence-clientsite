@@ -54,18 +54,18 @@ const Teachers = () => {
         }
     ]
     return (
-        <section className='my-16'>
+        <section className='my-16 max-w-[1440px] mx-auto'>
             <div className='flex justify-between'>
                 <div className='p-4'>
                     <h4 className='text-xl text-primary font-bold uppercase'>" Teachers</h4>
-                    <p className='text-3xl'>Meet With our Exparts "</p>
+                    <p className='text-3xl'>Meet With Our Exparts "</p>
                 </div>
                 <figure>
                     <img className='w-24 lg:w-48' src={quote} alt="" />
                 </figure>
             </div>
 
-            <div className='grid grid-cols-1 grid-cols-2 grid-cols-3 gap-3 m-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 m-4'>
                 {
                     teachers.map(teacher => <Teacher
                         key={teacher._id}

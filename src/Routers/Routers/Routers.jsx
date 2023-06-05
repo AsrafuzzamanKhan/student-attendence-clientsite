@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
         path: "/updateStudent/:id",
         element: <StudentUpdate></StudentUpdate>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/studentList/${params.id}`),
+          fetch(`https://student-attendence-seversite.vercel.app/studentList/${params.id}`),
       },
     ],
   },

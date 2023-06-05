@@ -8,7 +8,7 @@ const StudentUpdate = () => {
     const handleUpdateStudent = e => {
         e.preventDefault();
         // console.log(student);
-        fetch(`http://localhost:5000/studentList/${storedStudent._id}`, {
+        fetch(`https://student-attendence-seversite.vercel.app/studentList/${storedStudent._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
