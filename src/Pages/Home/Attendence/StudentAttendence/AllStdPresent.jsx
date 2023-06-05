@@ -4,29 +4,34 @@ import { AuthContext } from '../../../../contexts/AuthProvider';
 import { format } from 'date-fns';
 
 
-const AllStdPresent = ({ selectedDate, setSelectedDate }) => {
+const AllStdPresent = () => {
     const { user } = useContext(AuthContext);
-    const date = format(selectedDate, 'PP')
+
     const [attendence, setAttendence] = useState([])
 
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const date = format(selectedDate, 'PP')
     useEffect(() => {
         fetch(`http://localhost:5000/attendence?email=${user?.email}&date=${date}`)
             .then(res => res.json())
             .then(data => setAttendence(data))
     }, [date])
     return (
-        <div className='max-w-[1440px] mx-auto'>
+        <div className='px-5'>
             {/* calende  */}
-            <div>
+            <div >
                 <DayPicker
                     mode="single"
                     selected={selectedDate}
                     onSelect={setSelectedDate}
+
                 />
+                <p className='text-xl'> <span className='text-primary'>Teacher Name:</span> {user?.displayName}</p>
+                <p className='text-xl'> <span className='text-secondary'>Date:</span> {date}</p>
+
             </div>
 
-            <p>{user?.email}</p>
-            <p>Date: {date}</p>
+
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head*/}
@@ -50,7 +55,10 @@ const AllStdPresent = ({ selectedDate, setSelectedDate }) => {
                                     <th>{row.studentRoll}</th>
                                     <td>{row.studentName}</td>
                                     <td>{row.date}</td>
-                                    <td>{row?.attend}</td>
+                                    <td>{
+                                        row?.attend === 'Present' ? <button className='btn btn-success '>Presnt</button> : <button className='btn btn-error'>Absence</button>
+                                    }
+                                    </td>
 
                                     <td>
 

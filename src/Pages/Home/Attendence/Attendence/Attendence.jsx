@@ -17,10 +17,10 @@ const Attendence = () => {
 
       <StAttendence selectedDate={selectedDate}></StAttendence>
 
-      <AllStdPresent
+      {/* <AllStdPresent
         setSelectedDate={setSelectedDate}
         selectedDate={selectedDate}
-      ></AllStdPresent>
+      ></AllStdPresent> */}
 
     </div>
   );

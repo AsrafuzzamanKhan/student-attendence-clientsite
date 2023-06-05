@@ -13,7 +13,7 @@ const Navbar = () => {
         <li className='font-semibold'><Link to="/">Home </Link></li>
         <li className='font-semibold'><Link to="/attendence">Attendence</Link></li>
         <li className='font-semibold'><Link to="/addStudent">AddStudent</Link></li>
-        {/* <li className='font-semibold'><Link to="/allAttendence">All student</Link></li> */}
+        <li className='font-semibold'><Link to="/allAttendence">All student</Link></li>
 
 
         {user?.uid ?
