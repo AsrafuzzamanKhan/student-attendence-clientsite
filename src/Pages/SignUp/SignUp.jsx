@@ -25,7 +25,7 @@ const SignUp = () => {
                 }
                 updateUser(UserInfo)
                     .then(() => {
-                        saveTeacherDb(data.name, data.email, data.subject)
+                        saveTeacherDb(data.name, data.email, data.dept, data.subject)
                     })
                     .catch(err => console.log(err))
             })
@@ -36,8 +36,8 @@ const SignUp = () => {
 
     }
 
-    const saveTeacherDb = (name, email, subject) => {
-        const teacher = { name, email, subject };
+    const saveTeacherDb = (name, email, dept, subject) => {
+        const teacher = { name, email, dept, subject };
         fetch('https://student-attendence-seversite.vercel.app/teachers', {
             method: 'POST',
             headers: {
@@ -104,7 +104,21 @@ const SignUp = () => {
                         {errors.password && <p className='text-red-600 mt-2' role="alert">{errors.password?.message}</p>}
 
                     </div>
-                    {/* modified  */}
+                    {/* depertment modified  */}
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Depertment</span>
+
+                        </label>
+
+                        <select {...register("dept")} className="select select-bordered uppercase">
+                            <option value="cse">cse</option>
+                            <option value="ece">ece</option>
+                            <option value="bba">bba</option>
+                        </select>
+
+                    </div>
+                    {/* subject  */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Subject</span>
@@ -115,6 +129,10 @@ const SignUp = () => {
                             <option value="c programming">c-programming</option>
                             <option value="database">database</option>
                             <option value="networking">networking</option>
+                            <option value="district mathematics">District Mathematics</option>
+                            <option value="differential calculus">Differential Calculus</option>
+                            <option value="introduction To computer">Introduction To Computer</option>
+
                         </select>
 
                     </div>

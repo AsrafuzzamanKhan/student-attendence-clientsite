@@ -1,13 +1,13 @@
 import React from 'react';
 import Course from './Course';
 import icon from '../../../assets/icons/quote.svg'
-import homebg from '../../../assets/banner/homebg.jpg'
+
 
 const Courses = () => {
     const courses = [
         {
             id: 1,
-            name: 'Introduction To Computer',
+            name: 'Introduction to Computer',
             duration: 6,
             instructor: 'Lutfi habiba',
             img: icon
@@ -15,7 +15,7 @@ const Courses = () => {
         },
         {
             id: 2,
-            name: 'Programming language',
+            name: 'Networking',
             duration: 6,
             instructor: 'Ditee Yasmeen',
             img: icon
@@ -23,12 +23,13 @@ const Courses = () => {
         },
         {
             id: 3,
-            name: 'Networking',
+            name: 'Programming language',
             duration: 6,
-            instructor: 'Ditee Yasmeen',
+            instructor: 'Sanjida Hoque Shoshey ',
             img: icon
 
         },
+
         {
             id: 4,
             name: 'Differential Calculus',
@@ -41,7 +42,7 @@ const Courses = () => {
             id: 5,
             name: 'Database',
             duration: 6,
-            instructor: 'Toma yasmeen',
+            instructor: 'Tasmi Sultana',
             img: icon
 
         },
@@ -49,7 +50,7 @@ const Courses = () => {
             id: 6,
             name: 'District Mathematics',
             duration: 6,
-            instructor: 'Soshi',
+            instructor: 'Tania Sultana',
             img: icon
 
         },
@@ -59,7 +60,7 @@ const Courses = () => {
         // <div style={{ backgroundImage: `url(${homebg})` }}>
         <div className='max-w-[1440px] mx-auto'>
             <div className=''>
-                <h2 className='text-3xl font-bold text-center '>Course</h2>
+                <h2 className='text-3xl font-bold text-center '>Courses</h2>
             </div>
             <div className="flex flex-col w-full border-opacity-50">
 

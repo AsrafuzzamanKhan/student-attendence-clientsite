@@ -16,9 +16,9 @@ const Navbar = () => {
 
         {user?.uid ?
             <>
-                <li className='font-semibold'><Link to="/attendence">Attendence</Link></li>
-                <li className='font-semibold'><Link to="/allAttendence">Attendence Details</Link></li>
-                <li className='font-semibold'><Link to="/addStudent">AddStudent</Link></li>
+                <li className='font-semibold'><Link to="/attendence">Attendance</Link></li>
+                <li className='font-semibold'><Link to="/allAttendence">Attendance Details</Link></li>
+                <li className='font-semibold'><Link to="/addStudent">Add Student</Link></li>
                 <li className='font-semibold'><button className='btn btn-outline' onClick={handleLogOut}>Sign out</button></li></>
             : <li className='font-semibold'><Link to='/login'>Login</Link></li>}
     </React.Fragment>
@@ -35,7 +35,7 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">Student Attendence </Link >
+                    <Link to='/' className="btn btn-ghost normal-case text-xl">Student Attendance </Link >
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

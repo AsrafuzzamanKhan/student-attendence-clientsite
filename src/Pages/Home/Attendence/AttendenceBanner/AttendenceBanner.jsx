@@ -10,7 +10,7 @@ const AttendenceBanner = ({ selectedDate, setSelectedDate }) => {
         <div className="hero-content flex-col lg:flex-row-reverse	">
           <img
             src={student}
-            className="max-w-sm lg:w-1/2 rounded-lg shadow-2xl mx-5"
+            className="max-w-sm w-1/2 rounded-lg shadow-2xl"
           />
           <div>
             <DayPicker

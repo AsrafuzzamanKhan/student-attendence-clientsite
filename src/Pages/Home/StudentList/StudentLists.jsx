@@ -52,13 +52,13 @@ const StudentLists = () => {
             {/* head*/}
             <thead >
               <tr className="hover">
-                <th></th>
+                <th className="text-lg">SN.</th>
                 <th className="text-lg">Class roll</th>
                 <th className="text-lg">Name</th>
                 <th className="text-lg">Gmail</th>
                 <th className="text-lg">Phone Number</th>
-                {/* <th>Attendence</th>
-                <th>Edit</th> */}
+                {/* <th>Attendence</th> */}
+                <th className="text-lg">Action</th>
 
               </tr>
             </thead>
@@ -71,14 +71,12 @@ const StudentLists = () => {
                     <td>{row.name}</td>
                     <td>{row.email}</td>
                     <td>{row?.phone}</td>
-                    {/* <td>{row?.attendence}</td>
+                    {/* <td>{row?.attendence}</td> */}
                     <td>
-                      <Link to={`/updateStudent/${row._id}`}>
-                        {" "}
+                      {/* <Link to={`/updateStudent/${row._id}`}>
                         <button className="btn btn-outline btn-info uppercase">Edit</button>
-                      </Link>
-                      <button className="btn btn-error uppercase mx-2" onClick={() => handleDelete(row)}>Delete</button>
-                    </td> */}
+                      </Link> */}<button className="btn btn-error uppercase " onClick={() => handleDelete(row)}>Delete</button>
+                    </td>
                   </tr>
                 ))
               }

@@ -52,10 +52,14 @@ const AllStdPresent = () => {
             <div className="card-body">
 
                 <div className='mb-4 '>
-                    <p className='text-xl leading-8'> <span className='text-primary'>Teacher Name :</span> {user?.displayName}</p>
+                    <p className='text-2xl leading-8'> <span className='text-primary'>Teacher Name :</span> {user?.displayName}</p>
 
-                    <p className='text-2xl leading-8'> <span className='text-primary'>Subject: </span> <span className='uppercase'>{teacher[0]?.subject}</span></p>
+                    <p className='text-xl leading-8'> <span className='text-primary'>Depertment: </span> <span className='uppercase'>{teacher[0]?.dept}</span></p>
+
+                    <p className='text-xl leading-8'> <span className='text-primary'>Subject: </span> <span className='uppercase'>{teacher[0]?.subject}</span></p>
+
                     <p className='text-xl leading-8'> <span className='text-secondary'>Date : </span> {date}</p>
+
                     <p className='text-xl leading-8'> <span className='text-secondary'>Total student : </span>{attendence.length}</p>
                     <p className='text-xl leading-8'> <span className='text-secondary'>Present student : </span>{present.length}</p>
                     <p className='text-xl leading-8'> <span className='text-secondary'>Absent student : </span>{absent.length}</p>
@@ -69,7 +73,7 @@ const AllStdPresent = () => {
                     <table className="table w-full">
                         {/* head*/}
                         <thead>
-                            <tr >
+                            <tr className="hover">
                                 <th className='text-lg'>SN.</th>
                                 <th className='text-lg'>Class roll</th>
                                 <th className='text-lg'>Name</th>
@@ -83,7 +87,7 @@ const AllStdPresent = () => {
                         <tbody>
                             {
                                 attendence?.map((row, index) => (
-                                    <tr key={row._id} className="hover ">
+                                    <tr key={row._id} className="hover">
                                         <th>{index + 1}</th>
                                         <th>{row.studentRoll}</th>
                                         <td>{row.studentName}</td>

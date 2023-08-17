@@ -38,11 +38,12 @@ const StAttendence = ({ selectedDate }) => {
             <div className='text-center mt-8 leading-8	'>
                 <p className='text-xl leading-8'> <span className='text-primary'>Teacher Name:</span> {user?.displayName}</p>
 
+                <p className='text-2xl'> <span className='text-primary'>Depertment: </span> <span className='uppercase'>{teacher[0]?.dept}</span></p>
                 <p className='text-2xl'> <span className='text-primary'>Subject: </span> <span className='uppercase'>{teacher[0]?.subject}</span></p>
                 <p className="text-center text-primary font-bold my-5">
                     You have selected: {format(selectedDate, "PP")} </p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-[1440px] mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-[1440px] mx-auto'>
 
                 {
                     presents.map(option =>

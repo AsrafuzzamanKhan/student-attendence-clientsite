@@ -56,7 +56,7 @@ const Presents = ({ option, selectedDate }) => {
     return (
         <div>
 
-            <div className="card bg-base-100 shadow-lg ">
+            <div className="card bg-base-100 shadow-lg m-2 ">
                 <form className="card-body text-center" onSubmit={handlePresent}>
 
                     <input name='roll' type="number" defaultValue={roll} disabled className="input w-full input-bordered" />
